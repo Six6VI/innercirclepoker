@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Standings</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
+  <div class="container">
     <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
         <div class="container">
             <a class="navbar-brand" href="./homepage.html">
@@ -35,7 +36,8 @@
             </ul>
           </div>
         </div>
-      </nav>
+      </nav>  
+    
 
       <div class="px-4 py-5 my-2 text-center">
         <img class="d-block mx-auto mb-4" src="./images/logo.jpg" alt="" width="200">
@@ -48,11 +50,33 @@
         </div>
       </div>
 
+      <div class="row mb-3 text-center">
+        <div class="col-sm-1 themed-grid-col"></div>
+        <div class="col-sm-2 themed-grid-col"><img src="https://github.com/twbs.png" alt="twbs" width="40"class="rounded-circle flex-shrink-0 m-0 p-0"></div>
+        <div class="col-sm-3 themed-grid-col border border-light rounded-start rounded-end" style="--bs-border-opacity: .25">Jeff</div>
+        <div class="col-sm-3 themed-grid-col border border-light">Last Rank-1st</div>
+        <div class="col-sm-2 themed-grid-col border border-light">13.83</div>
+        <div class="col-sm-1 themed-grid-col"></div>
+      </div>
+      <div class="row mb-3 text-center">
+        <div class="col-sm-1 themed-grid-col"></div>
+        <div class="col-sm-2 themed-grid-col"><img src="https://github.com/twbs.png" alt="twbs" width="40"class="rounded-circle flex-shrink-0 m-0 p-0"></div>
+        <div class="col-sm-3 themed-grid-col border border-light">Jeff</div>
+        <div class="col-sm-3 themed-grid-col border border-light">Last Rank-1st</div>
+        <div class="col-sm-2 themed-grid-col border border-light">13.83</div>
+        <div class="col-sm-1 themed-grid-col"></div>
+      </div>
+    
+    </div>
+      
+  
+      
+
       <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
         <div class="list-group">
           <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
             <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
-            <div class="d-flex gap-2 w-100 justify-content-between">
+            <div class="d-flex gap-2 w-100 justify-content-between col-">
               <div>
                 <h6 class="mb-0">Jeff</h6>
                 <p class="mb-0 opacity-50">Last Rank- 1st</p>
