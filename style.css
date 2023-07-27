@@ -16,4 +16,9 @@
     font-weight:900;
 }
 
+.gallery {
+    background-image: url(./images/Events/season/season2.jpeg);
+    width: 100%;
+}
+
 
