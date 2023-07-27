@@ -1,0 +1,17 @@
+.down {
+    font-size:x-large; 
+    color: red; 
+    font-weight:700;
+}
+
+.up {
+    font-size:x-large; 
+    color: green; 
+    font-weight:900;
+}
+
+.even {
+    font-size:x-large; 
+    color: white; 
+    font-weight:900;
+}
