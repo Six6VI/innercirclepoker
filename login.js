@@ -44,6 +44,11 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             alert('Invalid username or password. Please try again.');
         }
     });
+
+    // Inside the login success condition
+sessionStorage.setItem('isLoggedIn', 'true');
+sessionStorage.setItem('loggedInUserName', username); // Optionally, store the username
+
 });
 
 //function loadCSV(callback) {
