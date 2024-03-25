@@ -22,8 +22,9 @@
 }
 
 #calendar {
-    width: 300px;
-    margin: 0 auto;
+    height: 60vh;
+    align-items: center;
+    justify-content: center;
   }
   
   table {
@@ -73,3 +74,6 @@ button {
   color:red;
 }
 
+.text-success{
+  color: green;
+}
