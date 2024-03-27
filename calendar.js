@@ -51,19 +51,23 @@ function generateCalendar(year, month) {
   calendar.innerHTML = calendarHTML;
 
   // Display events below the calendar
-  const eventContainer = document.getElementById('event-container');
-  eventContainer.innerHTML = ''; // Clear previous events
+const eventContainer = document.getElementById('event-container');
+eventContainer.innerHTML = ''; // Clear previous events
 
-  for (const day in eventsByMonth[year][month]) {
-    const eventDescription = eventsByMonth[year][month][day];
-    const eventElement = document.createElement('div');
-    eventElement.classList.add('event');
-    eventElement.innerHTML = `
-      <div class="event-date" id = "eventDate">${months[month]} ${day}, ${year}</div>
-      <div class="event-description">${eventDescription}</div>
-    `;
-    eventContainer.appendChild(eventElement);
-  }
+for (const day in eventsByMonth[year][month]) {
+  const event = eventsByMonth[year][month][day];
+  const eventElement = document.createElement('div');
+  eventElement.classList.add('event');
+  eventElement.innerHTML = `
+    <div class="event-date" id = "eventDate">${months[month]} ${day}, ${year}</div>
+    <div class="event-description">
+      <a href="#" onclick="showImagePopup('${event.imagePath}')">${event.description}</a>
+    </div>
+  `;
+  eventContainer.appendChild(eventElement);
+}
+
+
 }
 
 function prevMonth() {
@@ -78,16 +82,27 @@ function nextMonth() {
   generateCalendar(currentYear, currentMonth);
 }
 
-// Add a new event
-function addEvent(year, month, day, description) {
+// Add a new event with a local image path
+function addEvent(year, month, day, description, imagePath) {
   if (!eventsByMonth[year]) eventsByMonth[year] = {};
   if (!eventsByMonth[year][month]) eventsByMonth[year][month] = {};
-  eventsByMonth[year][month][day] = description;
+  eventsByMonth[year][month][day] = { description, imagePath };
 }
 
 // Example events
-addEvent(2024, 2, 16, "Shamrockpalooza!: $20 buy-in with re-buys for the first 2 hours. RSVP by Thursday, April 18th and receive 5000 chip bonus!");
-addEvent(2024, 3, 20, "The Final Season 2 Tournament: $20 buy-in with re-buys for the first 2 hours. RSVP by Thursday, April 18th and receive 5000 chip bonus!");
+addEvent(2024, 2, 16, "Shamrockpalooza!", "./images/Events/sea2marchEvent.png");
+addEvent(2024, 3, 20, "The Final Season 2 Tournament!", "./images/Events/sea2aprilEvent.png");
+
+function showImagePopup(imagePath) {
+  if (imagePath) {
+    const popupWidth = 600;
+    const popupHeight = 400;
+    const leftPosition = (window.screen.width - popupWidth) / 2;
+    const topPosition = (window.screen.height - popupHeight) / 2;
+    const popupWindow = window.open(imagePath, '', `width=${popupWidth},height=${popupHeight},left=${leftPosition},top=${topPosition}`);
+    popupWindow.focus();
+  }
+}
 
 // Initialize current year and month
 let currentYear = new Date().getFullYear();

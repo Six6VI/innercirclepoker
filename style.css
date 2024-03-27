@@ -99,5 +99,11 @@ button {
 }
 
 #eventDate{
-  Color:white;
+  Color:rgb(247, 19, 19);
+  font-size: large;
+}
+
+.event-description a {
+  color: rgb(204, 193, 193); /* Set the color of the link to black */
+  text-decoration: none; /* Remove underline from the link */
 }
