@@ -25,6 +25,7 @@
     height: 60vh;
     align-items: center;
     justify-content: center;
+    margin-bottom: -90px;
   }
   
   table {
@@ -64,7 +65,7 @@ input {
 
 button {
     padding: 8px 20px;
-    background-color: #007bff;
+    background-color: black;
     color: white;
     border: none;
     cursor: pointer;
@@ -76,4 +77,28 @@ button {
 
 .text-success{
   color: green;
+}
+
+.current-day{
+  color: #007bff;
+}
+
+.event-day{
+  color: red;
+}
+
+.event-container {
+  margin-top: 0px; /* Adjust this value to reduce the gap */
+}
+
+#loginButton{
+  padding: 8px 20px;
+  background-color: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#eventDate{
+  Color:white;
 }
