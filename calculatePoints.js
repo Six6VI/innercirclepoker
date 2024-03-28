@@ -4,7 +4,7 @@ function calculatePoints() {
     var e = parseFloat(document.getElementById("eInput").value);
     var f = parseFloat(document.getElementById("fInput").value);
     
-    var points = Math.sqrt((n * b * (b / e)) / (f + 1.0));
+    var points = Math.sqrt(n * b * b / e) / (f + 1.0);
     
     // Update the content of the resultContainer div with the calculated points
     document.getElementById("resultContainer").innerText = "Calculated points: " + points;
