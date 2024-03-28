@@ -107,3 +107,14 @@ button {
   color: rgb(204, 193, 193); /* Set the color of the link to black */
   text-decoration: none; /* Remove underline from the link */
 }
+
+#pointList{
+  list-style: none;
+  font-size: smaller;
+  text-align: justify;
+}
+
+#resultContainer {
+        text-align: center;
+        margin-top: 20px; 
+}

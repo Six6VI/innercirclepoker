@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Point Calculater</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link href="style.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="./homepage.html">
+          <img
+            src="./images/logo.jpg"
+            alt="Logo"
+            width="30"
+            class="d-inline-block align-text-top"
+          />
+          Inner Circle Poker
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="./standing.html">Standings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./schedule.html">Schedule</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./aboutUs.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./rulebook.html">Rule Book</a>
+            </li>
+          </ul>
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="userDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span id="userDisplayName"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="userDropdown">
+              <li>
+                <a class="dropdown-item" href="#" id="changePassword"
+                  >Change Password</a
+                >
+              </li>
+              <li><a class="dropdown-item" href="#" id="logout">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+        <p class="lead mb-4">
+            This is the algorithm that determines how many points you get from each
+            tournament. Your top 5 tournaments will be added together for your total score for the season.
+          </p>
+          <p>Points = SQRT((n*b*(b/e))/(f+1.0))</p>
+          <div class="container">      
+          <ul id="pointList">
+            <li>SQRT= The square root</li>
+            <li>n= The total number of players</li>
+            <li>b= The cost of the buy-in</li>
+            <li>e= Your total expense(buy-in,re-buys,add-ons)</li>
+            <li>f= Your finishing place</li>
+          </ul>
+        </div> 
+    </div>
+
+    <div class="container mt-4">
+        <h3 class="text-center">Calculate Points</h3>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="nInput" class="form-label">Value of n:</label>
+              <input type="number" class="form-control" id="nInput" placeholder="Enter value of n">
+            </div>
+            <div class="mb-3">
+              <label for="bInput" class="form-label">Value of b:</label>
+              <input type="number" class="form-control" id="bInput" placeholder="Enter value of b">
+            </div>
+            <div class="mb-3">
+              <label for="eInput" class="form-label">Value of e:</label>
+              <input type="number" class="form-control" id="eInput" placeholder="Enter value of e">
+            </div>
+            <div class="mb-3">
+              <label for="fInput" class="form-label">Value of f:</label>
+              <input type="number" class="form-control" id="fInput" placeholder="Enter value of f">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="calculatePoints()">Calculate</button>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-4" id="resultContainer">
+      </div>
+      
+
+    <div class="container">
+        <footer
+          class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+        >
+          <p class="col-md-4 mb-0 text-body-secondary">© Since 2022</p>
+  
+          <a class="navbar-brand" href="./homepage.html">
+            <img
+              src="./images/logo.jpg"
+              alt="Logo"
+              width="30"
+              class="d-inline-block align-text-top"
+            />
+            Inner Circle Poker
+          </a>
+  
+          <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link" href="./standing.html">Standings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./schedule.html">Schedule</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./archive.html">Archive</a>
+            </li>
+          </ul>
+        </footer>
+      </div>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"
+      ></script>
+      <script src="uploadStandings.js"></script>
+      <script src="rank.js"></script>
+      <script src="signin.js"></script>
+      <script src="logout.js"></script>
+      <script src="calculatePoints.js"></script>
+    </body>
+  </html>
