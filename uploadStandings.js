@@ -1,28 +1,11 @@
-// Function to fetch and parse CSV file
-async function fetchCSV() {
-    const response = await fetch('standings.csv');
-    const data = await response.text();
-    return parseCSV(data);
-}
-
-// Function to parse CSV data
-function parseCSV(csv) {
-    const lines = csv.split('\n');
-    const headers = lines[0].split(',').map(header => header.trim()); // Trim whitespace from headers
-    const standings = [];
-
-    for (let i = 1; i < lines.length; i++) {
-        const values = lines[i].split(',');
-        const entry = {};
-
-        for (let j = 0; j < headers.length; j++) {
-            entry[headers[j]] = values[j].trim(); // Trim whitespace from values
-        }
-
-        standings.push(entry);
+async function fetchStandings() {
+    const response = await fetch('/api/standings');
+    if (!response.ok) {
+        throw new Error('Could not load standings.');
     }
 
-    return standings;
+    const payload = await response.json();
+    return payload.standings || [];
 }
 
 //function parseCSV(csv) {
@@ -54,11 +37,9 @@ function updateStandings(standings) {
         const points = document.getElementById(`points${i + 1}`);
 
         if (listItem && lastRank && points) {
-            listItem.textContent = player.Name;
-            lastRank.textContent = `Last Rank - ${player.LastRank}`;
-            points.textContent = player.Points;
-
-            console.log(`Player ${i + 1} Points:`, player.Points); // Debugging output
+            listItem.textContent = player.name;
+            lastRank.textContent = `Last Rank - ${player.lastRank}`;
+            points.textContent = player.points;
         }
     }
 }
@@ -80,10 +61,10 @@ function updateStandings(standings) {
 // Main function to fetch CSV and update standings
 async function main() {
     try {
-        const standings = await fetchCSV();
+        const standings = await fetchStandings();
         updateStandings(standings);
     } catch (error) {
-        console.error('Error fetching or parsing CSV:', error);
+        console.error('Error fetching standings:', error);
     }
 }
 
